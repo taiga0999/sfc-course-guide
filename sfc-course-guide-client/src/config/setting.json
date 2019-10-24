@@ -1,0 +1,9 @@
+{
+  "search": {
+    "delay": 200
+  },
+  "showCourseWhenPageLoad": true,
+  "url": {
+    "search": "http://localhost:8000/search"
+  }
+}
