@@ -52,8 +52,8 @@ func Route() {
 	// MiddleWare
 	router.Use(cors.New(cors.Config{
 		AllowOrigins: []string{
-			"http://localhost:8080",
-			"http://localhost:3000",
+			"http://localhost:3000", // Express-prod-server
+			"http://localhost:8080", // Webpack-dev-server
 		},
 		AllowMethods:     []string{"GET"},
 		AllowHeaders:     []string{"Origin"},
