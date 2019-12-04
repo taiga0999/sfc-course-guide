@@ -1,63 +1,96 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var MiniCssExtractPlugin = require('mini-css-extract-plugin');
-var VueLoaderPlugin = require('vue-loader/lib/plugin')
-var Path = require('path');
-var Webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const path = require('path');
+const webpack = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const merge = require('webpack-merge');
 
-var jsFiles = ['main']
-var cssFiles = ['style']
-var htmlFiles = ['index']
+const TARGET = process.env.npm_lifecycle_event;
 
-module.exports = {
-    mode: "development",
-    devtool: 'cheap-module-eval-source-map',
-    entry: jsFiles.map(function (name) {
-        return './src/javascripts/' + name + '.js'
-    }).concat(cssFiles.map(function (name) {
-        return './src/stylesheets/' + name + '.css'
-    })),
-    output: {
-        path: Path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
-    },
-    plugins: [
-        new Webpack.HotModuleReplacementPlugin(),
-        new VueLoaderPlugin(),
-    ].concat(cssFiles.map(function (name) {
-        return new MiniCssExtractPlugin({
-            filename: name + '.css'
-        })
-    })).concat(htmlFiles.map(function (name) {
-        return new HtmlWebpackPlugin({
-            template: './src/views/' + name + '.html',
-            filename: name + '.html'
-        })
-    })),
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    'css-loader',
-                ],
-            },
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader'
-            }
-        ]
-    },
-    resolve: {
-        alias: {
-            'vue$': 'vue/dist/vue.esm.js'
-        }
-    },
-    devServer: {
-        hot: true,
-        open: true,
-        openPage: '',
-        port: 8080,
-        watchContentBase: true
-    }
+const strategy = {
+  'module.rules.use': 'prepend',
 };
+
+const common = {
+  entry: './src/main.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new VueLoaderPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/views/index.html',
+      filename: 'index.html',
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'css-loader',
+        ],
+      },
+    ],
+  },
+  resolve: {
+    alias: {
+      vue$: 'vue/dist/vue.esm.js',
+    },
+  },
+};
+
+const dev = {
+  mode: 'development',
+  devtool: 'cheap-module-eval-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'vue-style-loader',
+        ],
+      },
+    ],
+  },
+  devServer: {
+    historyApiFallback: true,
+    hot: true,
+    open: true,
+    openPage: '',
+    port: 8080,
+    watchContentBase: true,
+  },
+};
+
+const prod = {
+  mode: 'production',
+  plugins: [
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
+  ],
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+        ],
+      },
+    ],
+  },
+};
+
+module.exports = merge.smartStrategy(strategy)(common, {
+  dev,
+  prod,
+}[TARGET]);
