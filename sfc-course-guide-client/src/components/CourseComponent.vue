@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .course-box {
   border-radius: 25px;
   padding: 20px;

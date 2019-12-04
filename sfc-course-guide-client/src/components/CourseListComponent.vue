@@ -17,7 +17,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .course-list {
   height: 50vh;
 }

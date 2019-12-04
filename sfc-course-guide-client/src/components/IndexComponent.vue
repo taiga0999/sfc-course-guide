@@ -3,6 +3,7 @@
 </template>
 
 <style>
+/* global styles */
 body {
   margin: 0;
 }
@@ -13,6 +14,10 @@ body {
   justify-content: center;
   text-align: center;
 }
+</style>
+
+<style scoped>
+/* local styles */
 </style>
 
 <script>

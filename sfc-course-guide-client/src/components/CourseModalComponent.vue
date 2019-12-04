@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .modal-mask {
   cursor: default;
   position: fixed;
