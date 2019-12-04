@@ -1,5 +1,9 @@
 <template>
-  <router-view></router-view>
+  <div>
+    <button @click="darkMode" id="dark-mode">Dark</button>
+    <button @click="lightMode" id="light-mode">Light</button>
+    <router-view></router-view>
+  </div>
 </template>
 
 <style>
@@ -21,5 +25,14 @@ body {
 </style>
 
 <script>
-export default {};
+export default {
+  methods: {
+    darkMode() {
+      document.body.classList.add("dark-mode");
+    },
+    lightMode() {
+      document.body.classList.remove("dark-mode");
+    }
+  }
+};
 </script>
