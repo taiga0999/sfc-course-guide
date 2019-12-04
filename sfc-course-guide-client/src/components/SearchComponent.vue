@@ -7,6 +7,9 @@
 </template>
 
 <style>
+.dark-mode {
+  background-color: black;
+}
 </style>
 
 <script>
