@@ -10,13 +10,11 @@ import (
 )
 
 const (
-	Scheme    = "http"
-	Host      = "localhost"
-	Port      = "8000"
-	Authority = "//" + Host + ":" + Port
+	Scheme    = "http://"
+	Address   = "localhost:8000"
 	Index     = "/"
 	Search    = "/search"
-	EntryLink = Scheme + ":" + Authority + Index
+	EntryLink = Scheme + Address + Index
 )
 
 func openLink(url string) (err error) {
@@ -72,5 +70,5 @@ func Route() {
 
 	// openLink(EntryLink)
 
-	router.Run(":" + Port)
+	router.Run(Address)
 }
