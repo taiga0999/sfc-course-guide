@@ -2,7 +2,7 @@
   <input type="text" class="search-bar" v-model="input" @input="search" />
 </template>
 
-<style>
+<style scoped>
 input.search-bar {
   border: 0px solid #73ad21;
   border-radius: 25px;

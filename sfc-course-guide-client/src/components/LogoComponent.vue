@@ -2,7 +2,7 @@
   <h1 class="logo">SFC COURSE SUMMARY</h1>
 </template>
 
-<style>
+<style scoped>
 .logo {
   font-size: 5em;
   color: rgb(127, 127, 127);

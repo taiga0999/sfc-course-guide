@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .dark-mode {
   background-color: black;
 }
