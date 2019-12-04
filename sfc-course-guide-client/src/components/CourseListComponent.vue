@@ -1,7 +1,7 @@
 <template>
   <div class="course-list">
     <div class="menu">
-      <h2>{{ resultStats }}</h2>
+      <h2 class="result-stats">{{ resultStats }}</h2>
       <select id="showing-limit" v-model="pagination.perPage">
         <option v-for="(option, index) in pagination.options" :key="index">{{ option }}</option>
       </select>
@@ -27,7 +27,8 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
-.menu h2 {
+.result-stats {
+  margin-top: 1%;
   color: rgb(127, 127, 127);
   text-shadow: 0px 2px 20px #e5ddf5;
 }
@@ -39,6 +40,12 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+</style>
+
+<style scoped class="dark">
+body.dark .result-stats {
+  color: white;
 }
 </style>
 

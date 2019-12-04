@@ -38,12 +38,13 @@
 }
 
 .modal-container {
+  color: black;
   min-height: 50vh;
   height: auto;
   width: 50vw;
   margin: 0px auto;
   padding: 20px 30px;
-  background-color: #fff;
+  background-color: white;
   border-radius: 25px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
   transition: all 0.3s ease;
@@ -93,6 +94,25 @@
 .modal-leave-active .modal-container {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
+}
+</style>
+
+<style class="dark">
+body.dark .modal-container:hover {
+  background: var(--dark-mode-background);
+}
+body.dark .modal-container {
+  background-color: rgb(31, 31, 31);
+  color: white;
+  min-height: 50vh;
+  height: auto;
+  width: 50vw;
+  margin: 0px auto;
+  padding: 20px 30px;
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
+  transition: all 0.3s ease;
+  font-family: Helvetica, Arial, sans-serif;
 }
 </style>
 
