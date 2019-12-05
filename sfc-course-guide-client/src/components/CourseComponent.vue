@@ -18,7 +18,7 @@
   </div>
 </template>
 
-<style scoped>
+<style>
 .course-box {
   border-radius: 25px;
   padding: 20px;
@@ -53,7 +53,7 @@
   float: right;
 }
 </style>
-<style scoped class="dark">
+<style class="dark">
 body.dark .course-box {
   color: white;
   border-radius: 25px;
@@ -65,6 +65,10 @@ body.dark .course-box {
   justify-content: center;
   line-height: 2em;
   box-shadow: 0px 2px 20px 0px #e5ddf5;
+}
+
+body.dark .course-box .highlight {
+  color: #ff6200;
 }
 </style>
 <script>
