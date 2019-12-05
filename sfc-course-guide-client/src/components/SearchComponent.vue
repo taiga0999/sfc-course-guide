@@ -6,8 +6,8 @@
   </div>
 </template>
 
-<style scoped>
-.dark-mode {
+<style scoped >
+course-list {
   background-color: black;
 }
 </style>

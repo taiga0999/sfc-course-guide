@@ -53,7 +53,20 @@
   float: right;
 }
 </style>
-
+<style scoped class="dark">
+body.dark .course-box {
+  color: white;
+  border-radius: 25px;
+  padding: 20px;
+  width: 25em;
+  margin: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 2em;
+  box-shadow: 0px 2px 20px 0px #e5ddf5;
+}
+</style>
 <script>
 export default {
   data() {

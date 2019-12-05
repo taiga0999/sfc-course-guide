@@ -35,7 +35,11 @@ const common = {
       {
         test: /\.css$/,
         use: [
-          'css-loader',
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 },
+          },
+          'postcss-loader',
         ],
       },
     ],
