@@ -6,10 +6,10 @@
 .logo {
   font-size: 5em;
   color: rgb(127, 127, 127);
-  text-shadow: 0px 2px 20px #e5ddf5;
+  /* text-shadow: 0px 0px 4px #c4c4c4; */
 }
 body.dark .logo {
-  color: whitesmoke;
+  color: rgb(221, 221, 221);
 }
 </style>
 

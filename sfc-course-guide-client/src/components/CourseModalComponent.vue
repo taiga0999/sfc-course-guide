@@ -102,7 +102,7 @@ body.dark .modal-container:hover {
   background: var(--dark-mode-background);
 }
 body.dark .modal-container {
-  background-color: rgb(31, 31, 31);
+  background-color: #282c34;
   color: white;
   min-height: 50vh;
   height: auto;

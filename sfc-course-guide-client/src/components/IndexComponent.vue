@@ -54,10 +54,12 @@
 /* global styles */
 body {
   margin: 0;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 body.dark {
-  background-color: rgb(31, 31, 31);
+  background-color: #282c34;
+  color: rgb(221, 221, 221);
 }
 
 .aligner {

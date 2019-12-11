@@ -30,7 +30,7 @@
 .result-stats {
   margin-top: 1%;
   color: rgb(127, 127, 127);
-  text-shadow: 0px 2px 20px #e5ddf5;
+  /* text-shadow: 0px 0px 4px #c4c4c4; */
 }
 #showing-limit {
   margin-top: 1.5em;
@@ -43,11 +43,11 @@
 }
 </style>
 
-<style scoped class="dark">
+<!--<style scoped class="dark">
 body.dark .result-stats {
   color: white;
 }
-</style>
+</style> -->
 
 <script>
 export default {

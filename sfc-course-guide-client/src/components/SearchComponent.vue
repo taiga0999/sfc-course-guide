@@ -13,6 +13,7 @@ course-list {
 </style>
 
 <script>
+// export defaultは、コンポーネント化したい場合に使う。ほかの場所からも呼び出せるようになる。
 export default {
   data() {
     return {
