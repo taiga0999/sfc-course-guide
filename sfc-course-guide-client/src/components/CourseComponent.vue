@@ -75,10 +75,10 @@ body.dark .course-box .highlight {
 export default {
   data() {
     return {
-      showModal: false
+      showModal: false,
     };
   },
-  props: ["searchResult", "query"],
+  props: ['searchResult', 'query'],
   watch: {
     // "searchResult.Highlight"() {
     //   let highlight = this.searchResult.Highlight;
@@ -112,37 +112,35 @@ export default {
 
       // Text Processing
       const match = course.Title_memo_en.match(/(\(.*?\))/);
-      course.Title_memo_en = (match && match[1]) || "";
+      course.Title_memo_en = (match && match[1]) || '';
 
-      course.Language_en = course.Language_en || "TBD";
-      course.Semester_en = course.Semester_en || "TBD";
+      course.Language_en = course.Language_en || 'TBD';
+      course.Semester_en = course.Semester_en || 'TBD';
 
       if (!course.Days_en) {
-        course.Days_en = "TBD";
-      } else if (typeof course.Days_en !== "string") {
-        course.Days_en = course.Days_en.join(", ");
+        course.Days_en = 'TBD';
+      } else if (typeof course.Days_en !== 'string') {
+        course.Days_en = course.Days_en.join(', ');
       }
       course.Semester_days_en = `${course.Semester_en}: ${course.Days_en}`;
 
       if (!course.Faculty_in_charge) {
-        course.Faculty_in_charge = "TBD";
-      } else if (typeof course.Faculty_in_charge === "string") {
-        course.Faculty_in_charge = course.Faculty_in_charge;
+        course.Faculty_in_charge = 'TBD';
       } else if (course.Faculty_in_charge.length > 3) {
         course.Faculty_in_charge = `${course.Faculty_in_charge.slice(0, 3).join(
-          ", "
+          ', ',
         )} ...`;
-      } else {
-        course.Faculty_in_charge = course.Faculty_in_charge.join(", ");
+      } else if (typeof course.Faculty_in_charge !== 'string') {
+        course.Faculty_in_charge = course.Faculty_in_charge.join(', ');
       }
 
       // highlight
-      this.query.split(" ").forEach(query => {
-        const regexp = new RegExp(query, "gi");
-        Object.keys(course).forEach(key => {
+      this.query.split(' ').forEach((query) => {
+        const regexp = new RegExp(query, 'gi');
+        Object.keys(course).forEach((key) => {
           course[key] = course[key].replace(
             regexp,
-            `<span class="highlight">$&</span>`
+            '<span class="highlight">$&</span>',
           );
         });
       });
@@ -153,20 +151,20 @@ export default {
       return `<strong>${[
         this.course.Subject_sort,
         this.course.Title_en,
-        `<span class="highlight">${this.course.Title_memo_en}</span>`
-      ].join(" ")}</strong>`;
+        `<span class="highlight">${this.course.Title_memo_en}</span>`,
+      ].join(' ')}</strong>`;
     },
     body() {
       return [
         this.course.Faculty_in_charge,
         this.course.Semester_en,
         this.course.Days_en,
-        this.course.Language_en
-      ].join("<br>");
+        this.course.Language_en,
+      ].join('<br>');
     },
     footer() {
       return this.course.Description;
-    }
+    },
   },
   methods: {
     loadModal() {
@@ -174,7 +172,7 @@ export default {
     },
     closeModal() {
       this.showModal = false;
-    }
-  }
+    },
+  },
 };
 </script>

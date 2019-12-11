@@ -16,28 +16,28 @@ course-list {
 export default {
   data() {
     return {
-      searchResults: null
+      searchResults: null,
     };
   },
   methods: {
     foundCourseResults(result) {
       this.searchResults = result;
-    }
+    },
   },
   mounted() {
     if (!this.$setting.showCourseWhenPageLoad) return;
 
     new this.Request({
-      method: "Get",
-      url: this.$setting.url.search
+      method: 'Get',
+      url: this.$setting.url.search,
     }).perform({
-      onThen: response => {
+      onThen: (response) => {
         this.searchResults = response.data;
       },
       onFinally: () => {
         this.$refs.searchbar.$el.focus();
-      }
+      },
     });
-  }
+  },
 };
 </script>

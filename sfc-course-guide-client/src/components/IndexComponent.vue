@@ -1,5 +1,5 @@
 <template>
-  <div :class="{'dark': dark}" class="index">
+  <div :class="{ dark: dark }" class="index">
     <span class="themeSwitcher" @click="themeSwitcher">
       <svg
         v-if="this.dark"
@@ -87,21 +87,21 @@ svg {
 export default {
   data() {
     return {
-      switcherName: "dark",
-      dark: true
+      switcherName: 'dark',
+      dark: true,
     };
   },
   methods: {
     themeSwitcher() {
       // TODO(1) manually trigger darkmode for body element
-      document.body.classList[this.dark ? "add" : "remove"]("dark");
-      this.switcherName = this.dark ? "light" : "dark";
+      document.body.classList[this.dark ? 'add' : 'remove']('dark');
+      this.switcherName = this.dark ? 'light' : 'dark';
       this.dark = !this.dark;
-    }
+    },
   },
   mounted() {
     // TODO(1)
-    this.dark && this.themeSwitcher();
-  }
+    if (this.dark) this.themeSwitcher();
+  },
 };
 </script>

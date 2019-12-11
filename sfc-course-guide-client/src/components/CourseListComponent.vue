@@ -3,7 +3,9 @@
     <div class="menu">
       <h2 class="result-stats">{{ resultStats }}</h2>
       <select id="showing-limit" v-model="pagination.perPage">
-        <option v-for="(option, index) in pagination.options" :key="index">{{ option }}</option>
+        <option v-for="(option, index) in pagination.options" :key="index">{{
+          option
+        }}</option>
       </select>
     </div>
     <div class="course-wrapper" v-if="pagination.total">
@@ -57,11 +59,11 @@ export default {
         options: [10, 20, 50, 100],
         total: 0,
         count: 0,
-        perPage: 10
-      }
+        perPage: 10,
+      },
     };
   },
-  props: ["searchResults"],
+  props: ['searchResults'],
   watch: {
     searchResults() {
       this.pagination.total = this.searchResults
@@ -70,30 +72,30 @@ export default {
     },
     count() {
       this.pagination.count = this.count;
-    }
+    },
   },
   computed: {
     count() {
       return Math.min(this.pagination.perPage, this.pagination.total);
     },
     resultStats() {
-      let searchMsg = "";
+      let searchMsg = '';
       if (this.searchResults && this.pagination.count > 0) {
         searchMsg = `(${
           this.searchResults.Stat.Latency > 0
             ? this.searchResults.Stat.Latency / 1000
-            : "less then 0.001"
+            : 'less then 0.001'
         } seconds)`;
       }
 
       return `${this.pagination.total} results ${searchMsg}`;
     },
     query() {
-      return this.searchResults.Query || "";
+      return this.searchResults.Query || '';
     },
     resultsShowing() {
       return this.searchResults.Hits.slice(0, this.pagination.perPage);
-    }
-  }
+    },
+  },
 };
 </script>

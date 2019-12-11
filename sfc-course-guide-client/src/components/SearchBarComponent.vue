@@ -2,7 +2,6 @@
   <input type="text" class="search-bar" v-model="input" @input="search" />
 </template>
 
-</style>
 <style scoped>
 input.search-bar {
   border: 0px solid #73ad21;
@@ -20,14 +19,14 @@ input.search-bar {
 export default {
   data() {
     return {
-      input: "",
-      query: "",
+      input: '',
+      query: '',
       searchResult: null,
-      timer: null
+      timer: null,
     };
   },
   methods: {
-    search(event) {
+    search() {
       clearTimeout(this.timer);
 
       this.timer = setTimeout(() => {
@@ -37,15 +36,15 @@ export default {
         this.query = this.input;
 
         new this.Request({
-          method: "Get",
-          url: `${this.$setting.url.search}?query=${this.query}`
+          method: 'Get',
+          url: `${this.$setting.url.search}?query=${this.query}`,
         }).perform({
-          onThen: response => {
-            this.$emit("search", response.data);
-          }
+          onThen: (response) => {
+            this.$emit('search', response.data);
+          },
         });
       }, this.$setting.search.delay);
-    }
-  }
+    },
+  },
 };
 </script>

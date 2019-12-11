@@ -118,11 +118,11 @@ body.dark .modal-container {
 
 <script>
 export default {
-  props: ["link"],
+  props: ['link'],
   methods: {
     viewCourse() {
       window.open(this.link);
-    }
-  }
+    },
+  },
 };
 </script>
