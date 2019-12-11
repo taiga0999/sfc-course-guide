@@ -4,6 +4,7 @@ module.exports = {
     es6: true,
   },
   extends: [
+    'plugin:vue/essential',
     'airbnb-base',
   ],
   globals: {
@@ -14,13 +15,10 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
+  plugins: [
+    'vue',
+  ],
   rules: {
-    'func-names': 0,
     'no-console': 0,
-    'no-param-reassign': 0,
-    'no-plusplus': 0,
-    'no-unused-expressions': ['error', {
-      allowShortCircuit: true,
-    }],
   },
 };
